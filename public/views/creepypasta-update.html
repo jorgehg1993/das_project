@@ -1,0 +1,45 @@
+<main>
+			
+	<div class="container inner">
+		<div class="row">
+			
+			<div class="col-md-8 inner-right-md">
+				
+				<!-- ============================================================= SECTION – CONTACT FORM ============================================================= -->
+				
+				<section id="contact-form">
+					
+					<h2>Update your Creepypasta</h2>
+					
+					<form id="contactform" novalidate class="forms" ng-submit="updateCreepypasta(creepypasta)">
+						
+						<div class="row">
+							<div class="col-sm-9">
+								<input type="text" name="name" ng-model="creepypasta.title" class="form-control valid-signup" placeholder="Title (Required)" required>
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+
+						<div class="row">
+							<div class="col-sm-12">
+								<textarea name="message" class="form-control valid-signup" ng-model="creepypasta.content" placeholder="Content (Required)" required></textarea>
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+						
+						<button type="submit" class="btn btn-default btn-submit">Update</button>
+						
+					</form>
+					
+					<div id="response"></div>
+					
+				</section>
+				
+				
+				
+			</div><!-- ./col -->
+			
+			
+				
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+	
+</main>

@@ -1,11 +1,13 @@
 // server.js
 
 // modules =================================================
-var express        = require('express');
-var app            = express();
-var bodyParser     = require('body-parser');
-var methodOverride = require('method-override');
-var mongoose	   = require('mongoose');
+var express         = require('express');
+var app             = express();
+var bodyParser      = require('body-parser');
+var methodOverride  = require('method-override');
+var mongoose	    = require('mongoose');
+var logger		    = require('./config/logger.js')
+var morgan		    = require('morgan');
 
 // configuration ===========================================
     
@@ -34,6 +36,9 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 // set the static files location /public/img will be /img for users
 app.use(express.static(__dirname + '/public')); 
 
+// set logger 
+app.use(morgan("combined", {'stream':logger.stream}));
+
 // routes ==================================================
 require('./app/routes.js')(app); // configure our routes
 
@@ -42,7 +47,7 @@ require('./app/routes.js')(app); // configure our routes
 app.listen(port);               
 
 // shoutout to the user                     
-console.log('Magic happens on port ' + port);
+console.log('Server started on port ' + port);
 
 // expose app           
 exports = module.exports = app;                         

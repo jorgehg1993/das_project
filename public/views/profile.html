@@ -1,0 +1,90 @@
+<main>
+	<section id="blog-post">
+		<div class="container inner-top-sm classic-blog no-sidebar">
+			<div class="row">
+				<div class="col-md-12 center-block">
+						
+						<div class="post-author">
+							<figure>
+								<h2>My profile</h2>
+								<figcaption class="author-details">
+									<h3><strong>Username:</strong> {{user.username}}</h3>
+									<p><strong>Email:</strong> {{user.email}}></p>
+									<a href="/creepypasta-create" class="btn btn-default">Create new creepypasta</a>
+								</figcaption>
+							</figure>
+							
+						</div><!-- /.post-author -->
+							
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+	</section>
+
+	<section id="portfolio">
+		
+		<div class="container inner-top-sm inner-bottom-sm">
+			<div class="row">
+				<div class="col-md-8 col-sm-9 center-block text-center">
+					<header>
+						<h1>My Creepypastas</h2>
+					</header>
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+		
+		<div class="container inner-bottom">
+			<div class="row">
+				<div class="col-sm-12 portfolio">
+					<ul class="items col-3">
+						<li class="item thumb interactive" ng-repeat="creepypasta in myCreepypastas">
+							<figure>
+								<figcaption class="text-overlay">
+									<div class="info">
+										<a href="/creepypasta-detail/{{creepypasta._id}}" class="btn btn-default">View creepypasta</a>
+										<a href="/creepypasta-update/{{creepypasta._id}}" class="btn btn-default">Edit creepypasta</a>
+										<button class="btn btn-default" ng-click="openModalRemoveCreepypasta(creepypasta)">Delete creepypasta</button>
+									</div><!-- /.info -->
+								</figcaption>
+								<p class="center_align">{{creepypasta.title}}</p>
+							</figure>
+						</li><!-- /.item -->
+					</ul><!-- /.items -->
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+	</section>
+
+	<section id="portfolio">
+		
+		<div class="container inner-top-sm inner-bottom-sm">
+			<div class="row">
+				<div class="col-md-8 col-sm-9 center-block text-center">
+					<header>
+						<h1>Favorites</h2>
+					</header>
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+		
+		<div class="container inner-bottom">
+			<div class="row">
+				<div class="col-sm-12 portfolio">
+					<ul class="items col-3">
+						<li class="item thumb interactive" ng-repeat="creepypasta in favorites">
+							<figure>
+								<figcaption class="text-overlay">
+									<div class="info">
+										<a href="/creepypasta-detail/{{creepypasta._id}}" class="btn btn-default">View creepypasta</a>
+										<button class="btn btn-default" ng-click="openModalRemoveFavorites(creepypasta)">Remove from favorites</button>
+									</div><!-- /.info -->
+								</figcaption>
+								<p class="center_align">{{creepypasta.title}}</p>
+							</figure>
+						</li><!-- /.item -->
+					</ul><!-- /.items -->
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+	</section>
+</main>
