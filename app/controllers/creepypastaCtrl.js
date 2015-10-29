@@ -6,8 +6,6 @@ var auth = require('../auth.js')
 
 module.exports = function(app) {
 
-
-
     // api route that retrieves all creepypastas ordered by date
     app.get('/api/creepypastas/latest', function(req, res) {
         Creepypasta.find({active: true}, {active: 0, content: 0}).sort({creation_date:'desc'}).lean().exec(function(err, creepypastas) {
