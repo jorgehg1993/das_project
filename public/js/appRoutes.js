@@ -69,6 +69,8 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
             controller: 'UserCtrl'
         })
 
+        .otherwise({redirectTo: '/popular'});
+
     $locationProvider.html5Mode(true);
 
 }]);
