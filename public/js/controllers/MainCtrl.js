@@ -26,4 +26,13 @@ angular.module('creepyweb.maincontroller', [])
 		$scope.logged = true;
 		$scope.username = $localstorage.get('username');
 	}
+
+	$scope.$on("$routeChangeSuccess", function($currentRoute, $previousRoute) {
+	    var access_token = $localstorage.get('access_token');
+	
+		if(access_token !== undefined){
+			$scope.logged = true;
+			$scope.username = $localstorage.get('username');
+		}
+	});
 });
